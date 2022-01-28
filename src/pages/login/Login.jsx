@@ -13,10 +13,15 @@ export default function Login() {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", {
-        email: userRef.current.value,
-        password: passwordRef.current.value,
-      });
+      const res = await axios.post(
+        "https://testappduocchua.herokuapp.com/api/auth/login",
+        {
+          email: userRef.current.value,
+          password: passwordRef.current.value,
+        }
+      );
+      console.log(res);
+
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       alert("Login successful");
     } catch (err) {

@@ -42,7 +42,10 @@ export default function Write() {
               setFile("");
               console.log(newPost);
               try {
-                const res = await axios.post("/posts", newPost);
+                const res = await axios.post(
+                  "https://testappduocchua.herokuapp.com/api/posts",
+                  newPost
+                );
                 window.location.replace("/post/" + res.data._id);
               } catch (err) {
                 alert("Error, please try again");

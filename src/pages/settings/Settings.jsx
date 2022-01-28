@@ -14,8 +14,6 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
   const [url, setUrl] = useState("");
 
-  const PF = "http://localhost:5000/images/";
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_START" });
@@ -49,7 +47,7 @@ export default function Settings() {
               console.log(updatedUser);
               try {
                 const res = await axios.patch(
-                  "/users/" + user._id,
+                  "https://testappduocchua.herokuapp.com/api/users/" + user._id,
                   updatedUser
                 );
                 setSuccess(true);
@@ -64,7 +62,10 @@ export default function Settings() {
       );
     } else {
       try {
-        const res = await axios.patch("/users/" + user._id, updatedUser);
+        const res = await axios.patch(
+          "https://testappduocchua.herokuapp.com/api/users/" + user._id,
+          updatedUser
+        );
         setSuccess(true);
         dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
         console.log(res);

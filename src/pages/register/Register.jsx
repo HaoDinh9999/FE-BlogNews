@@ -15,7 +15,7 @@ export default function Register() {
     try {
       const res = await axios({
         method: "POST",
-        url: "/auth/register",
+        url: "https://testappduocchua.herokuapp.com/api/auth/register",
         data: {
           username,
           email,
