@@ -39,6 +39,11 @@ export default function TopBar() {
               WRITE
             </Link>
           </li>
+          <li className="topListItem">
+            <Link className="link" to="/statistic">
+              STATISTIC
+            </Link>
+          </li>
           <li className="topListItem" onClick={handleLogout}>
             {user && "LOGOUT"}
           </li>
